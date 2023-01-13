@@ -151,6 +151,15 @@ export function createServiceRef<TService>(
 ): ServiceRef<TService, 'root'>;
 
 // @public
+export function createSharedEnvironment<
+  TOptions extends [options?: object] = [],
+>(
+  config:
+    | SharedBackendEnvironmentConfig
+    | ((...params: TOptions) => SharedBackendEnvironmentConfig),
+): (...options: TOptions) => SharedBackendEnvironment;
+
+// @public
 export interface DatabaseService {
   getClient(): Promise<Knex>;
   migrations?: {
@@ -379,6 +388,18 @@ export interface ServiceRefConfig<TService, TScope extends 'root' | 'plugin'> {
   id: string;
   // (undocumented)
   scope?: TScope;
+}
+
+// @public (undocumented)
+export interface SharedBackendEnvironment {
+  // (undocumented)
+  $$type: 'SharedBackendEnvironment';
+}
+
+// @public (undocumented)
+export interface SharedBackendEnvironmentConfig {
+  // (undocumented)
+  services?: ServiceFactoryOrFunction[];
 }
 
 // @public
