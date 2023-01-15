@@ -7,26 +7,17 @@
 
 import { ApiHolder } from '@backstage/core-plugin-api';
 import { ApiRef } from '@backstage/core-plugin-api';
-import { Dispatch } from 'react';
 import { Extension } from '@backstage/core-plugin-api';
 import { FieldProps } from '@rjsf/core';
-import { FieldProps as FieldProps_2 } from '@rjsf/utils';
 import { FieldValidation } from '@rjsf/core';
-import { FieldValidation as FieldValidation_2 } from '@rjsf/utils';
-import type { FormProps as FormProps_2 } from '@rjsf/core-v5';
-import { IconComponent } from '@backstage/core-plugin-api';
 import { JsonObject } from '@backstage/types';
 import { JSONSchema7 } from 'json-schema';
 import { JsonValue } from '@backstage/types';
 import { Observable } from '@backstage/types';
 import { PropsWithChildren } from 'react';
 import { default as React_2 } from 'react';
-import { SetStateAction } from 'react';
 import { TaskSpec } from '@backstage/plugin-scaffolder-common';
 import { TaskStep } from '@backstage/plugin-scaffolder-common';
-import { TemplateEntityV1beta3 } from '@backstage/plugin-scaffolder-common';
-import { UIOptionsType } from '@rjsf/utils';
-import { UiSchema } from '@rjsf/utils';
 
 // @public
 export type Action = {
@@ -44,17 +35,6 @@ export type ActionExample = {
   description: string;
   example: string;
 };
-
-// @alpha
-export const createFieldValidation: () => FieldValidation_2;
-
-// @alpha
-export function createNextScaffolderFieldExtension<
-  TReturnValue = unknown,
-  TInputProps extends UIOptionsType = {},
->(
-  options: NextFieldExtensionOptions<TReturnValue, TInputProps>,
-): Extension<FieldExtensionComponent<TReturnValue, TInputProps>>;
 
 // @public
 export function createScaffolderFieldExtension<
@@ -78,12 +58,6 @@ export type CustomFieldValidator<TFieldReturnValue> = (
     apiHolder: ApiHolder;
   },
 ) => void | Promise<void>;
-
-// @alpha
-export const extractSchemaFromStep: (inputStep: JsonObject) => {
-  uiSchema: UiSchema;
-  schema: JsonObject;
-};
 
 // @public
 export type FieldExtensionComponent<_TReturnValue, _TInputProps> = () => null;
@@ -112,12 +86,6 @@ export type FieldExtensionOptions<
   schema?: CustomFieldExtensionSchema;
 };
 
-// @alpha
-export type FormProps = Pick<
-  FormProps_2,
-  'transformErrors' | 'noHtml5Validate'
->;
-
 // @public
 export type ListActionsResponse = Array<Action>;
 
@@ -132,63 +100,6 @@ export type LogEvent = {
   createdAt: string;
   id: string;
   taskId: string;
-};
-
-// @alpha
-export type NextCustomFieldValidator<TFieldReturnValue> = (
-  data: TFieldReturnValue,
-  field: FieldValidation_2,
-  context: {
-    apiHolder: ApiHolder;
-    formData: JsonObject;
-  },
-) => void | Promise<void>;
-
-// @alpha
-export interface NextFieldExtensionComponentProps<
-  TFieldReturnValue,
-  TUiOptions = {},
-> extends PropsWithChildren<FieldProps_2<TFieldReturnValue>> {
-  // (undocumented)
-  uiSchema?: UiSchema<TFieldReturnValue> & {
-    'ui:options'?: TUiOptions & UIOptionsType;
-  };
-}
-
-// @alpha
-export type NextFieldExtensionOptions<
-  TFieldReturnValue = unknown,
-  TInputProps = unknown,
-> = {
-  name: string;
-  component: (
-    props: NextFieldExtensionComponentProps<TFieldReturnValue, TInputProps>,
-  ) => JSX.Element | null;
-  validation?: NextCustomFieldValidator<TFieldReturnValue>;
-  schema?: CustomFieldExtensionSchema;
-};
-
-// @alpha
-export interface ParsedTemplateSchema {
-  // (undocumented)
-  description?: string;
-  // (undocumented)
-  mergedSchema: JsonObject;
-  // (undocumented)
-  schema: JsonObject;
-  // (undocumented)
-  title: string;
-  // (undocumented)
-  uiSchema: UiSchema;
-}
-
-// @alpha
-export const ReviewState: (props: ReviewStateProps) => JSX.Element;
-
-// @alpha
-export type ReviewStateProps = {
-  schemas: ParsedTemplateSchema[];
-  formState: JsonObject;
 };
 
 // @public
@@ -341,60 +252,6 @@ export const SecretsContextProvider: ({
   children,
 }: PropsWithChildren<{}>) => JSX.Element;
 
-// @alpha
-export const Stepper: (props: StepperProps) => JSX.Element;
-
-// @alpha
-export type StepperProps = {
-  manifest: TemplateParameterSchema;
-  extensions: NextFieldExtensionOptions<any, any>[];
-  templateName?: string;
-  FormProps?: FormProps;
-  initialState?: Record<string, JsonValue>;
-  onComplete: (values: Record<string, JsonValue>) => Promise<void>;
-};
-
-// @alpha
-export const TemplateCard: (props: TemplateCardProps) => JSX.Element;
-
-// @alpha
-export interface TemplateCardProps {
-  // (undocumented)
-  additionalLinks?: {
-    icon: IconComponent;
-    text: string;
-    url: string;
-  }[];
-  // (undocumented)
-  onSelected?: (template: TemplateEntityV1beta3) => void;
-  // (undocumented)
-  template: TemplateEntityV1beta3;
-}
-
-// @alpha
-export const TemplateGroup: (props: TemplateGroupProps) => JSX.Element;
-
-// @alpha
-export interface TemplateGroupProps {
-  // (undocumented)
-  components?: {
-    CardComponent?: React_2.ComponentType<TemplateCardProps>;
-  };
-  // (undocumented)
-  onSelected: (template: TemplateEntityV1beta3) => void;
-  // (undocumented)
-  templates: {
-    template: TemplateEntityV1beta3;
-    additionalLinks?: {
-      icon: IconComponent;
-      text: string;
-      url: string;
-    }[];
-  }[];
-  // (undocumented)
-  title: React_2.ReactNode;
-}
-
 // @public
 export type TemplateParameterSchema = {
   title: string;
@@ -412,16 +269,6 @@ export const useCustomFieldExtensions: <
 >(
   outlet: React.ReactNode,
 ) => TComponentDataType[];
-
-// @alpha
-export const useFormDataFromQuery: (
-  initialState?: Record<string, JsonValue>,
-) => [Record<string, any>, Dispatch<SetStateAction<Record<string, any>>>];
-
-// @alpha
-export const useTemplateSchema: (manifest: TemplateParameterSchema) => {
-  steps: ParsedTemplateSchema[];
-};
 
 // @public
 export const useTemplateSecrets: () => ScaffolderUseTemplateSecrets;
