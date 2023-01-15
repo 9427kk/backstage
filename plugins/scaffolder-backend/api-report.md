@@ -5,7 +5,6 @@
 ```ts
 /// <reference types="node" />
 
-import { BackendFeature } from '@backstage/backend-plugin-api';
 import { CatalogApi } from '@backstage/catalog-client';
 import { CatalogProcessor } from '@backstage/plugin-catalog-backend';
 import { CatalogProcessorEmit } from '@backstage/plugin-catalog-backend';
@@ -624,9 +623,6 @@ export type RunCommandOptions = {
   logStream?: Writable;
 };
 
-// @alpha
-export const scaffolderCatalogModule: () => BackendFeature;
-
 // @public (undocumented)
 export class ScaffolderEntitiesProcessor implements CatalogProcessor {
   // (undocumented)
@@ -640,20 +636,6 @@ export class ScaffolderEntitiesProcessor implements CatalogProcessor {
   // (undocumented)
   validateEntityKind(entity: Entity): Promise<boolean>;
 }
-
-// @alpha
-export const scaffolderPlugin: (
-  options: ScaffolderPluginOptions,
-) => BackendFeature;
-
-// @alpha
-export type ScaffolderPluginOptions = {
-  actions?: TemplateAction<any>[];
-  taskWorkers?: number;
-  taskBroker?: TaskBroker;
-  additionalTemplateFilters?: Record<string, TemplateFilter>;
-  additionalTemplateGlobals?: Record<string, TemplateGlobal>;
-};
 
 // @public
 export type SerializedTask = {

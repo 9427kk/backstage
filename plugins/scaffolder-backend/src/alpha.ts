@@ -14,13 +14,6 @@
  * limitations under the License.
  */
 
-/**
- * The Backstage backend plugin that helps you create new things
- *
- * @packageDocumentation
- */
-
-export * from './scaffolder';
-export * from './service/router';
-export * from './lib';
-export * from './processor';
+export * from './extension';
+export { scaffolderPlugin } from './ScaffolderPlugin';
+export type { ScaffolderPluginOptions } from './ScaffolderPlugin';
