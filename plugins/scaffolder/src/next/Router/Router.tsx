@@ -17,8 +17,8 @@ import React, { PropsWithChildren } from 'react';
 import { Routes, Route, useOutlet } from 'react-router-dom';
 import { TemplateListPage } from '../TemplateListPage';
 import { TemplateWizardPage } from '../TemplateWizardPage';
+import { NextFieldExtensionOptions } from '@backstage/plugin-scaffolder-react/alpha';
 import {
-  NextFieldExtensionOptions,
   SecretsContextProvider,
   useCustomFieldExtensions,
 } from '@backstage/plugin-scaffolder-react';

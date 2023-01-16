@@ -41,7 +41,7 @@ import { BackstageTheme } from '@backstage/theme';
 import {
   Stepper,
   NextFieldExtensionOptions,
-} from '@backstage/plugin-scaffolder-react';
+} from '@backstage/plugin-scaffolder-react/alpha';
 import { JsonValue } from '@backstage/types';
 import { FormProps } from '../types';
 import { nextRouteRef } from '../routes';

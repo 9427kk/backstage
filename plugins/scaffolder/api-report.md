@@ -21,15 +21,13 @@ import { FieldExtensionComponent as FieldExtensionComponent_2 } from '@backstage
 import { FieldExtensionComponentProps as FieldExtensionComponentProps_2 } from '@backstage/plugin-scaffolder-react';
 import { FieldExtensionOptions as FieldExtensionOptions_2 } from '@backstage/plugin-scaffolder-react';
 import { FieldValidation } from '@rjsf/core';
-import type { FormProps as FormProps_2 } from '@rjsf/core';
-import type { FormProps as FormProps_3 } from '@rjsf/core-v5';
+import type { FormProps } from '@rjsf/core';
 import { IdentityApi } from '@backstage/core-plugin-api';
 import { JsonObject } from '@backstage/types';
 import { ListActionsResponse as ListActionsResponse_2 } from '@backstage/plugin-scaffolder-react';
 import { LogEvent as LogEvent_2 } from '@backstage/plugin-scaffolder-react';
 import { Observable } from '@backstage/types';
 import { PathParams } from '@backstage/core-plugin-api';
-import { PropsWithChildren } from 'react';
 import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
 import { RouteRef } from '@backstage/core-plugin-api';
@@ -112,9 +110,9 @@ export type EntityPickerUiOptions =
 export const EntityTagsPickerFieldExtension: FieldExtensionComponent_2<
   string[],
   {
-    showCounts?: boolean | undefined;
-    kinds?: string[] | undefined;
     helperText?: string | undefined;
+    kinds?: string[] | undefined;
+    showCounts?: boolean | undefined;
   }
 >;
 
@@ -122,9 +120,9 @@ export const EntityTagsPickerFieldExtension: FieldExtensionComponent_2<
 export const EntityTagsPickerFieldSchema: FieldSchema<
   string[],
   {
-    showCounts?: boolean | undefined;
-    kinds?: string[] | undefined;
     helperText?: string | undefined;
+    kinds?: string[] | undefined;
+    showCounts?: boolean | undefined;
   }
 >;
 
@@ -155,12 +153,6 @@ export interface FieldSchema<TReturn, TUiOptions> {
   readonly uiOptionsType: TUiOptions;
 }
 
-// @alpha @deprecated
-export type FormProps = Pick<
-  FormProps_3,
-  'transformErrors' | 'noHtml5Validate'
->;
-
 // @public
 export type LayoutComponent<_TInputProps> = () => null;
 
@@ -173,7 +165,7 @@ export interface LayoutOptions<P = any> {
 }
 
 // @public
-export type LayoutTemplate<T = any> = FormProps_2<T>['ObjectFieldTemplate'];
+export type LayoutTemplate<T = any> = FormProps<T>['ObjectFieldTemplate'];
 
 // @public @deprecated (undocumented)
 export type ListActionsResponse = ListActionsResponse_2;
@@ -193,36 +185,6 @@ export function makeFieldSchemaFromZod<
   TUiOptionsSchema extends z.ZodType<any, any, infer IUiOptions>
     ? IUiOptions
     : never
->;
-
-// @alpha (undocumented)
-export const nextRouteRef: RouteRef<undefined>;
-
-// @alpha
-export type NextRouterProps = {
-  components?: {
-    TemplateCardComponent?: React_2.ComponentType<{
-      template: TemplateEntityV1beta3;
-    }>;
-    TaskPageComponent?: React_2.ComponentType<{}>;
-  };
-  groups?: TemplateGroupFilter[];
-  FormProps?: FormProps;
-};
-
-// @alpha
-export const NextScaffolderPage: (
-  props: PropsWithChildren<NextRouterProps>,
-) => JSX.Element;
-
-// @alpha (undocumented)
-export const nextScaffolderTaskRouteRef: SubRouteRef<
-  PathParams<'/tasks/:taskId'>
->;
-
-// @alpha (undocumented)
-export const nextSelectedTemplateRouteRef: SubRouteRef<
-  PathParams<'/templates/:namespace/:templateName'>
 >;
 
 // @public
@@ -306,8 +268,8 @@ export const RepoUrlPickerFieldExtension: FieldExtensionComponent_2<
             | {
                 azure?: string[] | undefined;
                 github?: string[] | undefined;
-                gitlab?: string[] | undefined;
                 bitbucket?: string[] | undefined;
+                gitlab?: string[] | undefined;
                 gerrit?: string[] | undefined;
               }
             | undefined;
@@ -332,8 +294,8 @@ export const RepoUrlPickerFieldSchema: FieldSchema<
             | {
                 azure?: string[] | undefined;
                 github?: string[] | undefined;
-                gitlab?: string[] | undefined;
                 bitbucket?: string[] | undefined;
+                gitlab?: string[] | undefined;
                 gerrit?: string[] | undefined;
               }
             | undefined;
@@ -512,12 +474,6 @@ export const TaskPage: ({ loadingText }: TaskPageProps) => JSX.Element;
 // @public
 export type TaskPageProps = {
   loadingText?: string;
-};
-
-// @alpha (undocumented)
-export type TemplateGroupFilter = {
-  title?: React_2.ReactNode;
-  filter: (entity: Entity) => boolean;
 };
 
 // @public @deprecated (undocumented)
