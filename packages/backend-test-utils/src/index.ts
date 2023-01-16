@@ -22,5 +22,4 @@
 
 export * from './database';
 export * from './msw';
-export * from './next';
 export * from './util';
