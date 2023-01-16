@@ -31,10 +31,8 @@ import { coreServices } from '@backstage/backend-plugin-api';
 import { startTestBackend } from '@backstage/backend-test-utils';
 import { ConfigReader } from '@backstage/config';
 import { catalogPlugin } from '@backstage/plugin-catalog-backend';
-import {
-  IncrementalEntityProvider,
-  incrementalIngestionEntityProviderCatalogModule,
-} from '.';
+import { IncrementalEntityProvider } from '.';
+import { incrementalIngestionEntityProviderCatalogModule } from './alpha';
 
 const provider: IncrementalEntityProvider<number, {}> = {
   getProviderName: () => 'test-provider',
