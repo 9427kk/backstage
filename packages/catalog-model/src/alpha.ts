@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 The Backstage Authors
+ * Copyright 2023 The Backstage Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,9 @@
  * limitations under the License.
  */
 
-export * from './conditions';
-export {
-  DEFAULT_NAMESPACE,
-  ANNOTATION_EDIT_URL,
-  ANNOTATION_VIEW_URL,
-  ANNOTATION_KUBERNETES_API_SERVER,
-  ANNOTATION_KUBERNETES_API_SERVER_CA,
-  ANNOTATION_KUBERNETES_AUTH_PROVIDER,
-} from './constants';
-export type { Entity, EntityLink, EntityMeta, EntityRelation } from './Entity';
-export type { EntityEnvelope } from './EntityEnvelope';
-export * from './policies';
-export {
-  getCompoundEntityRef,
-  parseEntityRef,
-  stringifyEntityRef,
-} from './ref';
+export type {
+  EntityStatus,
+  EntityStatusItem,
+  EntityStatusLevel,
+} from './entity/EntityStatus';
+export type { AlphaEntity } from './entity/AlphaEntity';
