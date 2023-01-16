@@ -26,10 +26,8 @@ import {
 import { stringifyEntityRef } from '@backstage/catalog-model';
 import { Config } from '@backstage/config';
 import { DocumentCollatorFactory } from '@backstage/plugin-search-common';
-import {
-  catalogEntityReadPermission,
-  CatalogEntityDocument,
-} from '@backstage/plugin-catalog-common';
+import { catalogEntityReadPermission } from '@backstage/plugin-catalog-common/alpha';
+import { CatalogEntityDocument } from '@backstage/plugin-catalog-common';
 import { Permission } from '@backstage/plugin-permission-common';
 import { Readable } from 'stream';
 import { getDocumentText } from './util';
