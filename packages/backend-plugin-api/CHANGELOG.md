@@ -1,5 +1,30 @@
 # @backstage/backend-plugin-api
 
+## 0.3.0
+
+### Minor Changes
+
+- 8e06f3cf00: Moved `loggerToWinstonLogger` to `@backstage/backend-common`.
+- ecbec4ec4c: Updated all factory function creators to accept options as a top-level callback rather than extra parameter to the main factory function.
+
+### Patch Changes
+
+- 6cfd4d7073: Added `RootLifecycleService` and `rootLifecycleServiceRef`, as well as added a `logger` option to the existing `LifecycleServiceShutdownHook`.
+- ecc6bfe4c9: Added `ServiceFactoryOrFunction` type, for use when either a `ServiceFactory` or `() => ServiceFactory` can be used.
+- 02b119ff93: Added a new `rootHttpRouterServiceRef` and `RootHttpRouterService` interface.
+- 5e2cebe9a3: Migrate `UrlReader` into this package to gradually remove the dependency on backend-common.
+- 843a0a158c: Added new core identity service.
+- 5437fe488f: Migrated types related to `TokenManagerService`, `CacheService` and `DatabaseService` into backend-plugin-api.
+- 6f02d23b01: Moved `PluginEndpointDiscovery` type from backend-common to backend-plugin-api.
+- 16054afdec: Documented `coreServices` an all of its members.
+- 62b04bb865: Updates all `create*` methods to simplify their type definitions and ensure they all have configuration interfaces.
+- Updated dependencies
+  - @backstage/backend-tasks@0.4.1
+  - @backstage/config@1.0.6
+  - @backstage/types@1.0.2
+  - @backstage/plugin-auth-node@0.2.9
+  - @backstage/plugin-permission-common@0.7.3
+
 ## 0.3.0-next.1
 
 ### Minor Changes
